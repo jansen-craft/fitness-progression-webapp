@@ -1,37 +1,45 @@
 <script setup lang="ts">
-import {ref} from 'vue';
-import {createExercise} from '../services/exercises.ts';
+import {ref, Ref} from 'vue';
+import { useRoute } from 'vue-router';
+import {createExercise, getExercise, Exercise} from '../services/exercises.ts';
 
+const route = useRoute();
 const now = new Date();
 
-const date = ref(`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`);
-const lift = ref("");
-const reps = ref(0);
-const sets = ref(0);
-const weight = ref(0);
+const exercise : Ref<Exercise> = ref({
+    movement_id: -1,
+    date: `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`,
+    movement_name: "",
+    reps: 0,
+    sets: 0,
+    weight: 0,
+});
 
 async function submit() {
-    await createExercise({
-        movement_id:  -1,
-        date: date.value,
-        weight: weight.value,
-        reps: reps.value,
-        sets: sets.value,
-        movement_name: lift.value,
-        user_id: 0 // Default.
+    console.log(exercise.value);
+    await createExercise(exercise.value);
+}
+
+if(route.params.id) {
+    getExercise(Number(route.params.id)).then(val => {
+        exercise.value = val;
+    }).catch(err => {
+        alert("Could not find exercise.");
+        console.error(err);
     });
 }
+
 </script>
 
 <template>
-    <h1>New Exercise</h1>
+    <h1>{{ $route.params.id ? "Edit" : "New" }} Exercise</h1>
     <section>
         <label>Date: </label>
-        <input v-model="date" id="exercise-date" type="date" />
+        <input v-model="exercise.date" id="exercise-date" type="date" />
     </section>
     <section>
         <label for="exercise-movement">Lift: </label>
-        <select v-model="lift" id="exercise-movement">
+        <select v-model="exercise.movement_name" id="exercise-movement">
             <option></option>
             <option>Bench</option>
             <option>Squat</option>
@@ -41,11 +49,11 @@ async function submit() {
     </section>
     <section>
         <label for="exercise-reps">Reps: </label>
-        <input id="exercise-reps" type="number" v-model="reps" />
+        <input id="exercise-reps" type="number" v-model="exercise.reps" />
         <label>Sets: </label>
-        <input id="exercise-sets" type="number" v-model="sets"/>
+        <input id="exercise-sets" type="number" v-model="exercise.sets"/>
         <label>Weight: </label>
-        <input id="exercise-weight" type="number" v-model="weight" />
+        <input id="exercise-weight" type="number" v-model="exercise.weight" />
     </section>
     <section>
         <button>Cancel</button>

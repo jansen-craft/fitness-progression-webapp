@@ -1,10 +1,9 @@
-let temp_exercises = [
-    {movement_id: 0, user_id: 0, movement_name: "Bench", reps: 8, sets: 3, weight: 195, date: "2023-10-28" }
+let temp_exercises : Exercise[] = [
+    {movement_id: 0, movement_name: "Bench", reps: 8, sets: 3, weight: 195, date: "2023-10-28" }
 ];
 
-interface Exercise {
-    movement_id: number,
-    user_id: number,
+export interface Exercise {
+    movement_id: number | undefined,
     movement_name: string,
     reps: number,
     sets: number,
@@ -17,7 +16,10 @@ export async function getExercises() {
 }
 
 export async function getExercise(id: number) {
-    return temp_exercises.find(i => i.movement_id=id);
+    const found = temp_exercises.find(i => i.movement_id=id);
+    if(found)
+        return found;
+    throw "Could not find exercise.";
 }
 export async function createExercise(exercise: Exercise) {
     exercise.movement_id = temp_exercises.length;

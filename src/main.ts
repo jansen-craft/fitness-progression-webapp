@@ -15,7 +15,8 @@ const routes = [
   { path: '/', component: Home },
   { path: '/open-powerlifting', component: OpenPowerlifting },
   { path: '/personal', component: Personal },
-  { path: '/new-exercise', component: EditExercise }
+  { path: '/new-exercise', component: EditExercise },
+  { path: '/edit-exercise/:id', component: EditExercise },
 ]
 
 const router = createRouter({

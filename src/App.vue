@@ -13,7 +13,7 @@
       <router-link to="/open-powerlifting">Open Powerlifting</router-link>
     </h3>
     <h3 class="logo">
-      <router-link to="/new-exercise">New Exercise</router-link>
+      <router-link to="/new-exercise">Log Exercise</router-link>
     </h3>
     <h3 class="logo vue">
       <router-link to="/personal">Personal</router-link>
