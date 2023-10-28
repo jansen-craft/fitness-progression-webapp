@@ -1,17 +1,34 @@
 <template>
-    <Bar :options="options" :data="data" />
+    <Line :options="options" :data="data" />
 </template>
 
 <script lang="ts">
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { Line } from 'vue-chartjs'
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+} from 'chart.js'
+
 import * as liftchartConfig from './liftchartConfig'
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
-
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+)
 export default {
-    name: 'BarChart',
-    components: { Bar },
+    name: 'LineChart',
+    components: { Line },
     data() {
         return liftchartConfig
     }

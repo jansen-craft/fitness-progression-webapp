@@ -1,12 +1,12 @@
 <template>
-  <BarChart />
+  <LineChart />
 </template>
 
 <script lang="ts">
-import BarChart from './LiftChart.vue'
+import LineChart from './LiftChart.vue'
 
 export default {
   name: 'App',
-  components: { BarChart }
+  components: { LineChart }
 }
 </script>
