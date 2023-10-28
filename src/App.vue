@@ -2,21 +2,21 @@
 </script>
 
 <template>
-  <div>
-    <div class="grid-container">
-      <h3 class="logo">
-        <router-link to="/hello">Hello World</router-link>
-      </h3>
-      <h3 class="logo vue">
-        <router-link to="/">Home</router-link>
-      </h3>
-      <h3 class="logo">
-        <router-link to="/open-powerlifting">Open Powerlifting</router-link>
-      </h3>
-      <h3 class="logo vue">
-        <router-link to="/personal">Personal</router-link>
-      </h3>
-    </div>
+  <div class="grid-container">
+    <h3 class="logo">
+      <router-link to="/hello">Hello World</router-link>
+    </h3>
+    <h3 class="logo vue">
+      <router-link to="/">Home</router-link>
+    </h3>
+    <h3 class="logo">
+      <router-link to="/open-powerlifting">Open Powerlifting</router-link>
+    </h3>
+    <h3 class="logo vue">
+      <router-link to="/personal">Personal</router-link>
+    </h3>
+  </div>
+  <div class="content">
     <router-view></router-view>
   </div>
 </template>
@@ -38,5 +38,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
+    height: 80px;
+}
+
+.content {
+    min-height: 800px;
 }
 </style>
