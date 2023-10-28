@@ -12,6 +12,9 @@
     <h3 class="logo">
       <router-link to="/open-powerlifting">Open Powerlifting</router-link>
     </h3>
+    <h3 class="logo">
+      <router-link to="/new-exercise">New Exercise</router-link>
+    </h3>
     <h3 class="logo vue">
       <router-link to="/personal">Personal</router-link>
     </h3>
@@ -36,7 +39,7 @@
 }
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
     height: 80px;
 }
