@@ -58,3 +58,11 @@ export async function editExercise(id: number, exercise: Exercise) {
     const i = temp_exercises.findIndex(j => j.movement_id == id);
     temp_exercises[i] = exercise;
 }
+
+/**
+ * Remove an exercise for the user.
+ * @param id ID of exercise to be removed.
+ */
+export async function deleteExercise(id: number) {
+    temp_exercises.splice(temp_exercises.findIndex(a => a.movement_id == id), 1);
+}
