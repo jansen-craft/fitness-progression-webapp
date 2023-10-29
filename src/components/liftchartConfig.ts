@@ -2,7 +2,7 @@ export const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
         {
-            label: 'Data One',
+            label: 'Bench Press',
             backgroundColor: '#f87979',
             /*data: [40, 39, 10, 40, 39, 80, 40]*/
             data: new Array(7)
