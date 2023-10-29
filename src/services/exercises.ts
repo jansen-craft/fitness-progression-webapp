@@ -16,12 +16,18 @@ export async function getExercises() {
 }
 
 export async function getExercise(id: number) {
-    const found = temp_exercises.find(i => i.movement_id=id);
+    const found = temp_exercises.find(i => i.movement_id==id);
     if(found)
         return found;
-    throw "Could not find exercise.";
+    throw "Could not find exercise " + id + ".";
 }
+
 export async function createExercise(exercise: Exercise) {
     exercise.movement_id = temp_exercises.length;
     temp_exercises.push(exercise);
+}
+
+export async function editExercise(id: number, exercise: Exercise) {
+    const i = temp_exercises.findIndex(j => j.movement_id == id);
+    temp_exercises[i] = exercise;
 }

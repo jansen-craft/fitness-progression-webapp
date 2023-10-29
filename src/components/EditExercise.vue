@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import {ref, Ref} from 'vue';
-import { useRoute } from 'vue-router';
-import {createExercise, getExercise, Exercise} from '../services/exercises.ts';
+import { useRoute, useRouter } from 'vue-router';
+import {createExercise, getExercise, editExercise, Exercise} from '../services/exercises.ts';
 
 const route = useRoute();
+const router = useRouter();
 const now = new Date();
 
 const exercise : Ref<Exercise> = ref({
@@ -17,7 +18,11 @@ const exercise : Ref<Exercise> = ref({
 
 async function submit() {
     console.log(exercise.value);
-    await createExercise(exercise.value);
+    if(!route.params.id)
+        await createExercise(exercise.value);
+    else
+        await editExercise(Number(route.params.id), exercise.value);
+    router.push({path: ( route.redirectedFrom?.path || '/personal') })
 }
 
 if(route.params.id) {
@@ -56,7 +61,7 @@ if(route.params.id) {
         <input id="exercise-weight" type="number" v-model="exercise.weight" />
     </section>
     <section>
-        <button>Cancel</button>
+        <button @click="$router.back()">Cancel</button>
         <button class="button-green" @click="submit()">Submit</button>
     </section>
 </template>
