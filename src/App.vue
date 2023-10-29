@@ -3,9 +3,6 @@
 
 <template>
   <div class="grid-container">
-    <h3 class="logo">
-      <router-link to="/hello">Hello World</router-link>
-    </h3>
     <h3 class="logo vue">
       <router-link to="/">Home</router-link>
     </h3>
