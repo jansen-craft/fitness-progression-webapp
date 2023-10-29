@@ -1,6 +1,12 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <p>personal page</p>
+  <LineChart />
 </template>
+
+<script lang="ts">
+import LineChart from './LiftChart.vue'
+
+export default {
+  name: 'App',
+  components: { LineChart }
+}
+</script>
