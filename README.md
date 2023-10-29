@@ -1,18 +1,33 @@
-# Vue 3 + TypeScript + Vite
+# Fitness Progression Webapp
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Part of a HACK-OH/IO project, this Vue API webapp serves as the UI for use with the backend app. The project hoped to solve the issue of modern fitness apps that require paid services to analyze your fitness trends by providing a basic visualization via a Vue frontend utilizing Chart.js.
 
-## Recommended IDE Setup
+See [Fitness Progression Resource](https://github.com/jansen-craft/fitness-progression-resource)
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+This app utilizes the frontend Javascript framework Vue. None of us had ever used Vue in the past and this project served us as an introduction. We also used a package called Chart.js to generate the charts seen in the image below. This hackathon was irregular in that a few of the teammates were not able to contribute throughout the contest, but we leared a lot because of the forced independence. Vue was a very nice change from Angular, which two of us were familiar with and we hope to use it in future projects!
 
-## Type Support For `.vue` Imports in TS
+## Homepage
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+![Homepage](./src/assets/homepage.png)
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Technologies
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+<div>
+    <p>
+      <a align="left" href="https://github.com/vuejs"><img src="https://vuejs.org/images/logo.png" alt="Logo" height=100></a>
+      <a align="right" href="https://www.chartjs.org"><img src="https://www.chartjs.org/media/logo-title.svg" alt="Logo" height=100></a>
+    </p>
+</div>
+
+## Setup
+To install dependencies:
+
+```bash
+npm install
+```
+
+To run:
+
+```bash
+npm run dev
+```
